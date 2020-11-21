@@ -125,7 +125,7 @@ int countSpecialPrimes(int n)
         if(isSpec)
         {
             count++;
-            cout << n << ", ";
+            //cout << n << ", ";
         }
     }
     return (count + countSpecialPrimes(n-1));
@@ -159,8 +159,13 @@ int main()
     cout << endl;*/
 
 
-    int numPrimes = countSpecialPrimes(100);
-    cout << endl << "COUNT OF SPECIAL PRIMES: " << numPrimes << endl;
+    int l[6] = {10, 100, 257, 545, 814, 999};
+    cout << endl << "COUNT OF SPECIAL PRIMES: " << endl;
+
+    for(int i=0; i < 6; i++)
+    {
+        cout << countSpecialPrimes(l[i]) << endl;
+    }
 
     return 0;
 }
