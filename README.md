@@ -19,7 +19,6 @@ when writing the Lisp code.
 Commented out in both files are some random test cases. If you would like to test those, simply uncomment that portion of code.
 
 ### To Run the C++ File
-The C++ version does not prompt for user input, so you must manually edit the main() yourself.
 ```
 g++ cpp_version.cpp -o program
 ./program x
