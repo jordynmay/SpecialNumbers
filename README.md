@@ -14,13 +14,15 @@ This is the first Lisp program I have ever written, and I didn't want to have to
 So, I wrote an equivalent program in C++ first.
 It helped serve as a way to confirm correctness of the output of my Lisp program as well as guide my thought process 
 when writing the Lisp code.
+Commented out in both files are some random test cases. If you would like to test those, simply uncomment that portion of code.
 
 ### To Run the C++ File
 The C++ version does not prompt for user input, so you must manually edit the main() yourself.
 ```
-g++ cpp_version.cpp
-./a.out
+g++ cpp_version.cpp -o program
+./program x
 ```
+x being whatever value you want to test. If no argument is provided, x defaults to 100.
 
 ### To Run the Lisp File
 ```
