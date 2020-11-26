@@ -26,6 +26,7 @@ g++ cpp_version.cpp -o program
 x being whatever value you want to test. If no argument is provided, x defaults to 100.
 
 ### To Run the Lisp File
+You must be in a Lisp environment to do this. I personally use gcl, but it doesn't matter what you use.
 ```
 (load "lisp_version.lsp")
 (countSpecialPrimes x)
