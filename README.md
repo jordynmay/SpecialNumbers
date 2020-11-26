@@ -3,6 +3,8 @@ Here, we define special numbers as numbers where every rotation they have is pri
 For example, the number 197 is a special number because 197, 719, and 971 are all prime.
 Note the distinction between rotations and combinations or permutations.
 We are only considering rotations.
+Another example is the number 281. 281 itself is prime, but 128 is not and neither is 812.
+Therefore, 281 is not a special number.
 
 ## Files in this Repo
 There are two files, a C++ file and a Lisp file.
