@@ -1,18 +1,19 @@
 #include <iostream>
 #include <list>
+#include <math.h>
 using namespace std;
 
-bool isPrime(const int n, int i) // First call should have i=2
+// Returns true if n is prime, false otherwise
+// First call should have i=2
+bool isPrime(const int n, int i)
 {
     bool isPrimeNum;
     if(n <= 1)
     {
         return false;
     }
-    //cout << "is i>n/2? " << (i>(n/2)) << endl;
-    if(i > n/2)
+    if(i > sqrt(n))
     {
-        //cout << "\treturning prime" << endl;
         isPrimeNum = true;
         return isPrimeNum;
     }
@@ -20,20 +21,19 @@ bool isPrime(const int n, int i) // First call should have i=2
     {
         if(n % i == 0)
         {
-            //cout << "\treturning not prime" << endl;
             isPrimeNum == false;
             return isPrimeNum;
         }
         else
         {
             i++;
-            //cout << "n, i is: " << n << ", " << i << endl;
             isPrimeNum = isPrime(n, i);
             return isPrimeNum;
         }
     }
 }
 
+// Returns the list version of an integer n
 list<int> intToList(int n, list<int> nList)
 {
     if(n <= 0)
@@ -49,6 +49,7 @@ list<int> intToList(int n, list<int> nList)
     }
 }
 
+// Returns the integer version of a list of integers
 // First call should have n=0
 int listToInt(int n, list<int> nList)
 {
@@ -65,6 +66,7 @@ int listToInt(int n, list<int> nList)
     }   
 }
 
+// Returns a list of lists of integers that contains all rotations of the initial list
 // First call should have i=1
 list<list<int>> rotateList(list<int> nList, list<list<int>> listList, int i)
 {
@@ -83,6 +85,7 @@ list<list<int>> rotateList(list<int> nList, list<list<int>> listList, int i)
     }
 }
 
+// Prints a list of integers
 void printList(list<int> l)
 {
     for(int n : l)
@@ -92,6 +95,7 @@ void printList(list<int> l)
     return;
 }
 
+// Returns true if every integer in list l is considered special
 // First call should have i = 1
 bool isSpecial(list<list<int>> l)
 {
@@ -109,6 +113,7 @@ bool isSpecial(list<list<int>> l)
     }
 }
 
+// Returns the number of special numbers in the range 2 to n
 int countSpecialPrimes(int n)
 {
     int count = 0;
@@ -125,47 +130,30 @@ int countSpecialPrimes(int n)
         if(isSpec)
         {
             count++;
-            //cout << n << ", ";
         }
     }
     return (count + countSpecialPrimes(n-1));
 }
 
-int main()
+int main(int argc, char* argv[])
 {
-    int num1 = 1;
-    int num2 = 197;
-
-    //cout << num1 << " is prime? ";
-    //printf(isPrime(num1, 2) ? "YES\n" : "NO\n");
-    //cout << num2 << " is prime? ";
-    //printf(isPrime(num2, 2) ? "YES\n" : "NO\n");
-
-    list<int> nList = intToList(num2, {});
-    //printList(nList);
-    //cout << endl;
-
-    int backToInt = listToInt(0, nList);
-    //cout << "List back to int is: " << backToInt << endl;
-
-
-    list<list<int>> allRots = rotateList(nList, {}, 1);
-    /*for(list<int> n : allRots)
-    {
-        cout << "(";
-        printList(n);
-        cout << ")";
-    }
-    cout << endl;*/
-
-
+    /*
     int l[6] = {10, 100, 257, 545, 814, 999};
-    cout << endl << "COUNT OF SPECIAL PRIMES: " << endl;
 
     for(int i=0; i < 6; i++)
     {
         cout << countSpecialPrimes(l[i]) << endl;
     }
+    */
+
+    int test = 100; // Default value if no argument is provided
+
+    if(argc > 1)
+    {
+        test = atoi(argv[1]);
+    }
+
+    cout << countSpecialPrimes(test) << endl;
 
     return 0;
 }
